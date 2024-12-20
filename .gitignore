@@ -1,0 +1,8 @@
+.vscode/
+.idea/
+
+
+build/
+out/
+dist/
+distination/
