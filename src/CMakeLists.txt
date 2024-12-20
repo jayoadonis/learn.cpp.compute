@@ -34,6 +34,15 @@ add_executable(
     ${__SRC_MAIN_EXE}
 )
 
+#REM: [TODO] .|. Hmmm...
+#REM: [TODO, OVERVIEW] .|. Copy res to '{somewhere-exe-or-bin-build-dir}` 
+add_custom_command(
+    TARGET ${PROJECT_NAME}-${PROJECT_VERSION}
+    PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/src/main/resources $<TARGET_FILE_DIR:${PROJECT_NAME}-${PROJECT_VERSION}>
+)
+
 target_link_libraries(
     ${PROJECT_NAME}-${PROJECT_VERSION}
     PRIVATE
@@ -46,3 +55,4 @@ target_compile_options(
     PRIVATE
     -Wall -Wextra -Wpedantic
 )
+
