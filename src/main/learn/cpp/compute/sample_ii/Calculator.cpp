@@ -19,7 +19,7 @@ namespace learn::cpp::compute::sample_ii {
 
   std::string Calculator::toString() const {
     const std::type_info& TYPE_INFO = typeid(*this);
-    const std::string CLASS_CANNONICAL_NAME 
+    const std::string CLASS_CANONICAL_NAME 
       = compute::demangle( TYPE_INFO.name() );
     
     constexpr std::size_t BUFF_LEN = 512;
@@ -27,12 +27,12 @@ namespace learn::cpp::compute::sample_ii {
 
     const int32_t DELTA_BUFF_LEN = snprintf(
       BUFF, BUFF_LEN,
-      "%s@%p", CLASS_CANNONICAL_NAME.c_str(), this
+      "%s@%p", CLASS_CANONICAL_NAME.c_str(), this
     );
 
     if( DELTA_BUFF_LEN > 0 && DELTA_BUFF_LEN < BUFF_LEN )
       return std::string(BUFF);
 
-    return CLASS_CANNONICAL_NAME;
+    return CLASS_CANONICAL_NAME;
   }
 }

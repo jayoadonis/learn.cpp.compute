@@ -23,17 +23,17 @@ namespace learn::cpp::compute {
     }
     public: std::string toString() {
       const std::type_info& TYPE_INFO = typeid(*this);
-      const std::string CLASS_CANNONICAL_NAME = demangle(TYPE_INFO.name());
+      const std::string CLASS_CANONICAL_NAME = demangle(TYPE_INFO.name());
       
       constexpr int BUFF_LEN = 512;
       char BUFF[BUFF_LEN] = {0};
 
-      const int DELTA_BUFF_LEN = snprintf( BUFF, BUFF_LEN, "%s@%p", CLASS_CANNONICAL_NAME.c_str(), (void*)this);
+      const int DELTA_BUFF_LEN = snprintf( BUFF, BUFF_LEN, "%s@%p", CLASS_CANONICAL_NAME.c_str(), (void*)this);
 
       if( DELTA_BUFF_LEN > 0 && DELTA_BUFF_LEN < BUFF_LEN )
         return std::string(BUFF);
 
-      return CLASS_CANNONICAL_NAME;
+      return CLASS_CANONICAL_NAME;
     }
   };
 }
