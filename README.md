@@ -33,7 +33,7 @@ project-root-dir $ cmake --build ./build
 ## With custom script file **(clean and build)**
 - ### Linux
   ```bash
-  project-root-dir $ project.sh --clean --build build
+  project-root-dir $ ./project.sh --clean --build build
   ```
 - ### Windows
   ```bash
