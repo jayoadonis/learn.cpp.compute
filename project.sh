@@ -1,17 +1,18 @@
 #!/bin/bash
 
-#REM: Global Constants
+# Global Constants
 CLEAN=0
 BUILD=0
 BUILD_DIR="build"
 ROOT_DIR="."
 CLI_APP_NAME="$(basename "$0")"
+BUILD_DIR_SET=0
 
-#REM: Argument Counter
+# Argument Counter
 ARGS=("$@")
 ARG_COUNT=${#ARGS[@]}
 
-#REM: Functions
+# Functions
 display_help() {
     echo "::: Usage:"
     echo "    $CLI_APP_NAME --clean [<build-dir>]"
@@ -27,7 +28,7 @@ error_invalid_args() {
 }
 
 parse_args() {
-    while [[ $#REM: -gt 0 ]]; do
+    while [[ $# -gt 0 ]]; do
         case "$1" in
             --help)
                 display_help
@@ -39,7 +40,7 @@ parse_args() {
                 BUILD=1
                 ;;
             *)
-                if [[ -z "$BUILD_DIR_SET" ]]; then
+                if [[ $BUILD_DIR_SET -eq 0 ]]; then
                     BUILD_DIR="$1"
                     BUILD_DIR_SET=1
                 else
@@ -80,18 +81,12 @@ perform_build() {
     fi
 }
 
-#REM: Main Script Logic
-if [[ $ARG_COUNT -lt 1 || $ARG_COUNT -gt 3 ]]; then
-    error_invalid_args
-fi
-
+# Main Script Logic
 parse_args "${ARGS[@]}"
 
 if [[ $CLEAN -eq 0 && $BUILD -eq 0 ]]; then
     error_invalid_args
 fi
-
-[[ -z "$BUILD_DIR" ]] && BUILD_DIR="build"
 
 if [[ $CLEAN -eq 1 ]]; then
     perform_clean
