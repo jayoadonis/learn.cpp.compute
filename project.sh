@@ -4,7 +4,7 @@
 CLEAN=0
 BUILD=0
 BUILD_DIR="build"
-SOURCE_DIR="."
+ROOT_DIR="."
 CLI_APP_NAME="$(basename "$0")"
 
 #REM: Argument Counter
@@ -66,7 +66,7 @@ perform_clean() {
 
 perform_build() {
     echo "::: Configuring project in '$BUILD_DIR'"
-    cmake -S "$SOURCE_DIR" -B "$BUILD_DIR"
+    cmake -S "$ROOT_DIR" -B "$BUILD_DIR"
     if [[ $? -ne 0 ]]; then
         echo "::: Configuration failed"
         exit 1

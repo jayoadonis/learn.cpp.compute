@@ -2,9 +2,9 @@
 function(add_link_pkg_private_and_include pkg_name pkg_path)
     file(
         GLOB_RECURSE
-        __SRC_MAIN_DIR ${CMAKE_SOURCE_DIR}/src/main/${pkg_path}/*.cpp
+        __SRC_IMPL ${CMAKE_SOURCE_DIR}/src/main/${pkg_path}/*.cpp
     )
-    add_library(${pkg_name} ${__SRC_MAIN_DIR})
+    add_library(${pkg_name} ${__SRC_IMPL})
     target_include_directories(
         ${pkg_name}
         PUBLIC ${CMAKE_SOURCE_DIR}/src/include

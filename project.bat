@@ -5,7 +5,7 @@ setlocal enabledelayedexpansion
 set CLEAN=0
 set BUILD=0
 set BUILD_DIR=build
-set SOURCE_DIR=.
+set ROOT_DIR=.
 set CLI_APP_NAME=%~nx0
 
 @REM Argument Counter
@@ -62,7 +62,7 @@ if %CLEAN%==1 (
 @REM Handle Building
 if %BUILD%==1 (
     echo ^::: Configuring project in '%BUILD_DIR%'
-    cmake -S "%SOURCE_DIR%" -B "%BUILD_DIR%"
+    cmake -S "%ROOT_DIR%" -B "%BUILD_DIR%"
     if errorlevel 1 (
         echo ^::: Configuration failed
         exit /b 1
