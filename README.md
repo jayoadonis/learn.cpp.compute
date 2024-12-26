@@ -1,3 +1,14 @@
+
+
+### Personal Journal Disclaimer  
+
+**learn.cpp.compute** is an independent educational resource created to share knowledge and experiences related to learning C++ programming.  
+
+> [!IMPORTANT]
+>Please note: The content may contain inaccuracies, as this is a learning journey.  
+> If you notice errors or have suggestions, feel free to reach out via the GitHub repository or email. Your contributions are appreciated!
+> 
+
 ## Initial Configuration
 ```bash
 project-root-dir $ cmake -S . -B ./build
