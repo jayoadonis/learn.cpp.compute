@@ -1,8 +1,15 @@
 .vscode/
+.vsc
+.vs
 .idea/
+.eclipse
+.netbeans
+.beans
 
 
 build/
 out/
 dist/
-distination/
+distro/
+distribution/
+destination/
